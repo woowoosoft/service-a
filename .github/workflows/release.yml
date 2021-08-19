@@ -22,4 +22,6 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           push: true
-          tags: "${{ github.repository }}:${{ steps.tag_name.outputs.GIT_TAG }},${{ github.repository }}:${{ github.sha }}"
+          tags: "koenighotze/service-a:${{ steps.tag_name.outputs.GIT_TAG }}"
+          labels: |
+            revision:${{ github.sha }}
