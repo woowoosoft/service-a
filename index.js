@@ -11,7 +11,7 @@ app.get('/hello/:name', async (req, res) => {
 })
 
 app.get('/senacor', async (req, res) => {
-  res.send(`Hier ist der neue Endpunkt 2x`)
+  res.send(`Servus`)
 })
 
 app.listen(port, () => {
