@@ -10,6 +10,10 @@ app.get('/hello/:name', async (req, res) => {
   res.send(`Hello ${req.params.name}. The date is ${response.data.datetime}`)
 })
 
+app.get('/senacor', async (req, res) => {
+  res.send(`Hier ist der neue Endpunkt 2`)
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
