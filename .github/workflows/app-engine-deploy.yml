@@ -1,0 +1,25 @@
+name: App Engine Deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+    deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+      - uses: actions/checkout@v2
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v0.2.1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - name: Deploy to app engine
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.4.0
+      - id: Check that application is up
+        run: curl "${{ steps.deploy.outputs.url }}/hello/test"
