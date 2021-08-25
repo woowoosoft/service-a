@@ -16,6 +16,7 @@ jobs:
       - uses: matt-ball/newman-action@v0.2.4
         with:
           collection: service-a.postman_collection.json
+          verbose: true
       
       - name: Notify Slack
         uses: rtCamp/action-slack-notify@v2
