@@ -18,14 +18,9 @@ jobs:
         with:
           collection: service-a.postman_collection.json
           reporters: cli
-          # timeout: 3000
-          # timeoutRequest: 3000
+          timeout: 10000
+          timeoutRequest: 10000
 
-      # - uses: matt-ball/newman-action@v0.2.4
-      #   with:
-      #     collection: service-a.postman_collection.json
-      #     verbose: true
-      
       - name: Notify Slack
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -33,4 +28,4 @@ jobs:
           SLACK_USERNAME: integration-test
           SLACK_ICON_EMOJI: ":poop:"
           SLACK_TITLE: "Integration test run"
-          SLACK_MESSAGE: "${{ steps.postman.outputs.summary }}"
+          SLACK_MESSAGE: "${{ steps.postman.outputs.summary_full }}"
