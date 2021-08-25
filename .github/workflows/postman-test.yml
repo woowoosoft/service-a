@@ -18,8 +18,8 @@ jobs:
         with:
           collection: service-a.postman_collection.json
           reporters: cli
-          timeout: 3000
-          timeoutRequest: 3000
+          # timeout: 3000
+          # timeoutRequest: 3000
 
       # - uses: matt-ball/newman-action@v0.2.4
       #   with:
