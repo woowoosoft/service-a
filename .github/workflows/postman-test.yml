@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-    docker-release:
+    integration-test:
       runs-on: ubuntu-latest
 
       steps:
