@@ -15,5 +15,12 @@ jobs:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
-          collection: postman_collection.json
-          environment: postman_environment.json
+          collection: service-a.postman_collection.json
+      
+      - name: Notify Slack
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_USERNAME: integration-test
+          SLACK_ICON_EMOJI: ":poop:"
+          SLACK_TITLE: "Integration test run"
