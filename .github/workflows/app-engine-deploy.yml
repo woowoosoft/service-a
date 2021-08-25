@@ -23,7 +23,7 @@ jobs:
         uses: google-github-actions/deploy-appengine@v0.4.0
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
-          deliverables: app-standard.yaml
+          deliverables: app.yaml
       - name: Check that application is up
         run: curl "${{ steps.deploy.outputs.url }}/hello/test"
       - name: Notify Slack
