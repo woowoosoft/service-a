@@ -21,5 +21,7 @@ jobs:
       - name: Deploy to app engine
         id: deploy
         uses: google-github-actions/deploy-appengine@v0.4.0
+        with:
+          deliverables: app-standard.yaml
       - name: Check that application is up
         run: curl "${{ steps.deploy.outputs.url }}/hello/test"
