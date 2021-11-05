@@ -1,13 +1,13 @@
 const express = require('express')
 const axios = require('axios').default
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 8080
 
 app.get('/hello/:name', async (req, res) => {
   // TODO: this should point to service B
   const response = await axios.get('http://worldtimeapi.org/api/timezone/Europe/Berlin')
 
-  res.send(`Hola ${req.params.name}. The date is ${response.data.datetime}`)
+  res.send(`Bonjour ${req.params.name}. The date is ${response.data.datetime}`)
 })
 
 app.listen(port, () => {
