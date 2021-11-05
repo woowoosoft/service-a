@@ -1,0 +1,14 @@
+name: Schön deployn
+
+on:
+  push:
+    branches: ["main"]
+    
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+    - run: npm install
